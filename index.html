@@ -12,7 +12,7 @@
   <!-- Google Fonts: Syncopate + Cormorant Garamond + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syncopate:wght@400;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,34 +27,24 @@
             serif: ['"Cormorant Garamond"', 'serif']
           },
           colors: {
-            obsidian: '#07080a',
-            surface: '#0e1117',
-            card: 'rgba(16, 20, 29, 0.75)',
+            obsidian: '#050608',
+            surface: '#0d1017',
+            card: 'rgba(13, 16, 23, 0.82)',
             gold: {
-              300: '#fde68a',
+              300: '#fef08a',
               400: '#e6c36c',
               500: '#c59b27',
-              600: '#997316',
-              glow: 'rgba(230, 195, 108, 0.15)'
+              600: '#997316'
             }
           },
           animation: {
-            'glow-pulse': 'glowPulse 5s ease-in-out infinite alternate',
-            'float-slow': 'floatSlow 7s ease-in-out infinite alternate',
-            'shimmer': 'shimmer 2.5s linear infinite'
+            'glow-pulse': 'glowPulse 6s ease-in-out infinite alternate',
+            'radar': 'radar 3s linear infinite'
           },
           keyframes: {
             glowPulse: {
               '0%': { opacity: '0.2', transform: 'scale(0.95)' },
-              '100%': { opacity: '0.45', transform: 'scale(1.05)' }
-            },
-            floatSlow: {
-              '0%': { transform: 'translateY(0px)' },
-              '100%': { transform: 'translateY(-14px)' }
-            },
-            shimmer: {
-              '0%': { backgroundPosition: '-200% 0' },
-              '100%': { backgroundPosition: '200% 0' }
+              '100%': { opacity: '0.5', transform: 'scale(1.05)' }
             }
           }
         }
@@ -66,34 +56,32 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #07080a; }
+    ::-webkit-scrollbar-track { background: #050608; }
     ::-webkit-scrollbar-thumb { background: #232936; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #e6c36c; }
 
-    /* Ultra-Luxe Glassmorphism & Gold Gradients */
     .gold-text-gradient {
-      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 35%, #e6c36c 70%, #997316 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 30%, #e6c36c 70%, #997316 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .gold-metallic-border {
-      border: 1px solid rgba(230, 195, 108, 0.22);
-      box-shadow: 0 0 25px rgba(230, 195, 108, 0.05);
+      border: 1px solid rgba(230, 195, 108, 0.2);
+      box-shadow: 0 0 25px rgba(230, 195, 108, 0.04);
     }
     .gold-metallic-border:hover {
-      border-color: rgba(230, 195, 108, 0.55);
-      box-shadow: 0 12px 35px -8px rgba(230, 195, 108, 0.18);
-      transform: translateY(-4px);
+      border-color: rgba(230, 195, 108, 0.6);
+      box-shadow: 0 16px 40px -10px rgba(230, 195, 108, 0.22);
+      transform: translateY(-5px);
     }
     .gold-button {
       background: linear-gradient(135deg, #fef08a 0%, #e6c36c 50%, #b48318 100%);
-      box-shadow: 0 10px 30px -5px rgba(230, 195, 108, 0.35);
+      box-shadow: 0 10px 30px -5px rgba(230, 195, 108, 0.4);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .gold-button:hover {
-      box-shadow: 0 15px 40px -3px rgba(230, 195, 108, 0.55);
+      box-shadow: 0 15px 45px -3px rgba(230, 195, 108, 0.65);
       transform: translateY(-2px);
     }
     .page-tab-content {
@@ -107,7 +95,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Subtle Grain Texture */
+    /* Cinematic Vignette Overlay */
+    .hero-vignette {
+      background: radial-gradient(circle at center, rgba(5,6,8,0.2) 0%, rgba(5,6,8,0.85) 75%, #050608 100%);
+    }
+    /* Film Grain Texture */
     .bg-grain {
       background-image: radial-gradient(rgba(230, 195, 108, 0.04) 1px, transparent 0);
       background-size: 32px 32px;
@@ -115,15 +107,14 @@
   </style>
 </head>
 
-<body class="bg-obsidian text-zinc-300 font-sans antialiased selection:bg-gold-500/25 selection:text-gold-300 min-h-screen flex flex-col relative overflow-x-hidden bg-grain">
+<body class="bg-obsidian text-zinc-300 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300 min-h-screen flex flex-col relative overflow-x-hidden bg-grain">
 
-  <!-- Ambient Golden Ray Orbs -->
+  <!-- Ambient Golden Glow -->
   <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[550px] bg-gradient-to-b from-gold-500/15 via-gold-600/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-10 animate-glow-pulse"></div>
-  <div class="fixed bottom-0 right-[-10%] w-[500px] h-[500px] bg-gold-600/5 rounded-full blur-[160px] pointer-events-none -z-10"></div>
 
   <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-50 bg-obsidian/85 backdrop-blur-2xl border-b border-white/5 transition-all">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+  <header class="fixed top-0 w-full z-50 bg-obsidian/75 backdrop-blur-2xl border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#home" onclick="switchAscensionTab('home'); return false;" class="flex items-center gap-3.5 group">
@@ -141,19 +132,19 @@
 
       <!-- Desktop Dynamic Tab Navigation -->
       <nav class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-surface/90 border border-white/10 shadow-inner">
-        <button onclick="switchAscensionTab('home')" data-tab="home" class="ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md">
+        <button onclick="switchAscensionTab('home')" data-tab="home" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md">
           Portal
         </button>
-        <button onclick="switchAscensionTab('transformations')" data-tab="transformations" class="ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="switchAscensionTab('transformations')" data-tab="transformations" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
           Dossiers
         </button>
-        <button onclick="switchAscensionTab('protocol')" data-tab="protocol" class="ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="switchAscensionTab('protocol')" data-tab="protocol" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
           Protocol
         </button>
-        <button onclick="switchAscensionTab('coach')" data-tab="coach" class="ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="switchAscensionTab('coach')" data-tab="coach" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
           Architect
         </button>
-        <button onclick="switchAscensionTab('apply')" data-tab="apply" class="ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all flex items-center gap-1.5">
+        <button onclick="switchAscensionTab('apply')" data-tab="apply" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all flex items-center gap-1.5">
           <span>Apply</span>
           <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
         </button>
@@ -183,108 +174,85 @@
     </div>
   </header>
 
-  <main class="flex-grow">
+  <main class="flex-grow pt-20 sm:pt-24">
 
-    <!-- ==================== PAGE 1: PORTAL HOME ==================== -->
-    <section id="tab-home" class="page-tab-content active max-w-7xl mx-auto px-6 lg:px-12 pt-16 md:pt-24 pb-20">
+    <!-- ==================== PAGE 1: PORTAL (CINEMATIC VIDEO HERO) ==================== -->
+    <section id="tab-home" class="page-tab-content active relative min-h-[92vh] flex flex-col justify-between overflow-hidden">
       
-      <!-- Status Badge -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-surface border border-gold-400/25 shadow-sm text-xs font-mono tracking-widest uppercase text-zinc-300">
+      <!-- CINEMATIC BACKGROUND VIDEO (Barbell Heavy Deadlift / Equipment Lift) -->
+      <div class="absolute inset-0 w-full h-full overflow-hidden -z-20">
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          class="w-full h-full object-cover filter brightness-[0.4] contrast-[1.25] saturate-[0.85]"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-athlete-lifting-heavy-barbell-with-weights-41235-large.mp4" type="video/mp4">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-muscular-man-doing-dumbbell-curls-41232-large.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Vignette Gradients & Scanline Layer -->
+      <div class="absolute inset-0 hero-vignette -z-10 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/70 -z-10 pointer-events-none"></div>
+
+      <!-- HERO CENTER CONTENT -->
+      <div class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 text-center my-auto space-y-7 relative z-10">
+        
+        <!-- Live Intake Status Badge -->
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-gold-400/30 text-[11px] font-mono tracking-widest uppercase text-zinc-300 shadow-xl">
           <span class="flex h-2 w-2 relative">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-400"></span>
           </span>
-          <span class="text-gold-300">Cohort 07 Application Window Open</span>
+          <span class="text-gold-300">Live Intake Cohort 07</span>
           <span class="text-zinc-600">|</span>
-          <span class="text-zinc-400">Strictly 12 Mentees</span>
+          <span class="text-zinc-400">Strictly 12 Private Slots</span>
         </div>
-      </div>
 
-      <!-- Headline -->
-      <div class="text-center max-w-4xl mx-auto space-y-7">
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-bold uppercase tracking-tight text-white leading-[1.08]">
-          ARCHITECT YOUR <br>
-          <span class="gold-text-gradient font-serif italic capitalize tracking-normal text-5xl sm:text-7xl lg:text-8xl">Ascended Physique</span>
+        <!-- Grand Cinematic Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.05]">
+          ENGINEER THE <br>
+          <span class="gold-text-gradient font-serif italic capitalize tracking-normal text-6xl sm:text-8xl lg:text-9xl">Apex Physique</span>
         </h1>
         
-        <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
-          Not a generic fitness program. A bespoke, data-driven biomechanical and nutritional framework built exclusively for high-performing executives and athletes.
+        <p class="text-sm sm:text-base md:text-lg text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+          A bespoke biomechanical protocol designed exclusively for high-performing executives and athletes demanding elite muscular symmetry, raw power, and metabolic resilience.
         </p>
 
-        <!-- CTA Cluster -->
-        <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5">
+        <!-- CTA Action Cluster -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button onclick="switchAscensionTab('apply')" class="w-full sm:w-auto gold-button px-9 py-4 rounded-full text-xs font-bold uppercase tracking-[0.22em] text-black">
-            Submit Private Assessment &rarr;
+            Submit Assessment Intake &rarr;
           </button>
           
-          <button onclick="switchAscensionTab('transformations')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-surface border border-white/10 hover:border-gold-400/40 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition-all">
-            Examine Proof (240+ Cases)
+          <button onclick="switchAscensionTab('transformations')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:border-gold-400/50 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all shadow-lg">
+            Review Dossiers (240+ Proofs)
           </button>
         </div>
+
       </div>
 
-      <!-- Hero Video / Visual Reel Banner -->
-      <div class="mt-20 relative p-1 rounded-3xl bg-gradient-to-b from-gold-400/25 via-white/5 to-transparent shadow-2xl">
-        <div class="bg-surface rounded-[22px] overflow-hidden border border-white/10 relative">
-          <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
-            
-            <div class="lg:col-span-7 p-8 sm:p-14 space-y-6">
-              <span class="px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-gold-500/10 text-gold-400 border border-gold-400/30">
-                Flagship Case Study #042
-              </span>
-              <h2 class="text-3xl sm:text-4xl font-serif text-white italic">"14 Weeks From Corporate Fatigue to Sub-9% Conditioning."</h2>
-              <p class="text-sm text-zinc-400 leading-relaxed font-light">
-                Complete posture rectification, targeted clavicular shoulder hypertrophy, and continuous blood glucose balancing while logging 55 hours per week.
-              </p>
-              <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/5 text-center">
-                <div>
-                  <div class="text-2xl font-display font-bold text-white">-11.4kg</div>
-                  <div class="text-[10px] font-mono uppercase text-zinc-500 mt-1">Fat Mass</div>
-                </div>
-                <div>
-                  <div class="text-2xl font-display font-bold text-gold-400">+4.2kg</div>
-                  <div class="text-[10px] font-mono uppercase text-zinc-500 mt-1">Contractile Mass</div>
-                </div>
-                <div>
-                  <div class="text-2xl font-display font-bold text-white">8.8%</div>
-                  <div class="text-[10px] font-mono uppercase text-zinc-500 mt-1">Ending Caliper</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="lg:col-span-5 h-[340px] lg:h-[460px] relative bg-black overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80" 
-                alt="Elite Athlete Transformation" 
-                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105"
-              >
-              <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 right-6 px-4 py-2 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 font-mono text-[10px] uppercase text-gold-300 tracking-widest">
-                Verified Bio-Scan
-              </div>
-            </div>
-
+      <!-- Bottom Metric Strip Overlay -->
+      <div class="w-full border-t border-white/10 bg-black/70 backdrop-blur-md mt-16 py-6 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-mono">
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white tracking-wider">98.6%</div>
+            <div class="text-[10px] uppercase text-zinc-500 tracking-widest mt-1">Target Adherence</div>
           </div>
-        </div>
-      </div>
-
-      <!-- Quick 3 Value Pillars -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-        <div class="bg-surface/60 rounded-2xl p-7 border border-white/5 space-y-3">
-          <i data-lucide="dna" class="w-6 h-6 text-gold-400"></i>
-          <h3 class="text-lg font-display uppercase tracking-wider text-white">Individual Biomechanics</h3>
-          <p class="text-xs text-zinc-400 font-light leading-relaxed">No arbitrary exercise templates. Movements chosen strictly by limb length and structural leverage.</p>
-        </div>
-        <div class="bg-surface/60 rounded-2xl p-7 border border-white/5 space-y-3">
-          <i data-lucide="scale" class="w-6 h-6 text-gold-400"></i>
-          <h3 class="text-lg font-display uppercase tracking-wider text-white">Metabolic Safeguard</h3>
-          <p class="text-xs text-zinc-400 font-light leading-relaxed">Systematic reverse dieting that preserves basal metabolic expenditure with zero thyroid crash.</p>
-        </div>
-        <div class="bg-surface/60 rounded-2xl p-7 border border-white/5 space-y-3">
-          <i data-lucide="shield-check" class="w-6 h-6 text-gold-400"></i>
-          <h3 class="text-lg font-display uppercase tracking-wider text-white">Direct WhatsApp Link</h3>
-          <p class="text-xs text-zinc-400 font-light leading-relaxed">24/7 unbuffered communication directly with the head architect. No automated robot replies.</p>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-gold-400 tracking-wider">-11.4KG</div>
+            <div class="text-[10px] uppercase text-zinc-500 tracking-widest mt-1">Average Fat Elimination</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white tracking-wider">+4.8KG</div>
+            <div class="text-[10px] uppercase text-zinc-500 tracking-widest mt-1">Contractile Lean Tissue</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-gold-400 tracking-wider">1-ON-1</div>
+            <div class="text-[10px] uppercase text-zinc-500 tracking-widest mt-1">Direct WhatsApp Link</div>
+          </div>
         </div>
       </div>
 
@@ -380,7 +348,7 @@
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-mono">Scientific Rigor</span>
         <h2 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-white">The Methodology</h2>
-        <p class="text-sm text-zinc-400 font-light">Eliminating bro-science in favor of strict empirical adaptation.</p>
+        <p class="text-sm text-zinc-400 font-light">Eliminating generic templates in favor of strict empirical adaptation.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -411,7 +379,7 @@
           </div>
           <h3 class="text-2xl font-serif text-white italic">Autoregulated Periodization</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
-            High-stress business weeks demand neural adjustments. We dynamically regulate RPE (Rate of Perceived Exertion) and set volume to prevent adrenal burnout.
+            High-stress business weeks demand neural adjustments. We dynamically regulate RPE and set volume to prevent central nervous system burnout.
           </p>
         </div>
 
@@ -421,7 +389,7 @@
           </div>
           <h3 class="text-2xl font-serif text-white italic">Circadian & Sleep Architecture</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
-            Growth hormone spikes occur exclusively during slow-wave non-REM cycles. We optimize temperature, light spectrums, and magnesium protocols for deep cellular repair.
+            Peak hypertrophy requires slow-wave non-REM cycles. We optimize temperature, light spectrums, and supplementation protocols for deep cellular repair.
           </p>
         </div>
 
@@ -440,7 +408,7 @@
               class="w-full aspect-[4/5] object-cover"
             >
             <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/85 backdrop-blur-md border border-white/10">
-              <div class="font-display font-bold text-sm tracking-wider text-white uppercase">Sparsh / Harsh Jaju</div>
+              <div class="font-display font-bold text-sm tracking-wider text-white uppercase">Harsh / Sparsh Jaju</div>
               <div class="text-[11px] font-mono text-gold-400 uppercase mt-0.5">Founder & Head Physique Architect</div>
             </div>
           </div>
@@ -604,9 +572,9 @@
       document.querySelectorAll('.ascension-nav').forEach(btn => {
         const target = btn.getAttribute('data-tab');
         if (target === tabId) {
-          btn.className = 'ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md';
+          btn.className = 'ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md';
         } else {
-          btn.className = 'ascension-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all';
+          btn.className = 'ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all';
         }
       });
 
