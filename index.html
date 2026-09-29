@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TITAN CLUB | The Ascension Protocol</title>
-  <meta name="description" content="Elite physique engineering, bio-mechanics optimization, and bespoke aesthetic transformations.">
+  <meta name="description" content="Private bespoke physique engineering, kinetic leverage optimization, and elite aesthetic conditioning.">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
 
-  <!-- Google Fonts: Syncopate + Cormorant Garamond + Plus Jakarta Sans -->
+  <!-- Luxury Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syncopate:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,28 +23,40 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Syncopate"', 'sans-serif'],
-            serif: ['"Cormorant Garamond"', 'serif']
+            display: ['"Cinzel"', 'serif'],
+            mono: ['"Space Grotesk"', 'monospace']
           },
           colors: {
-            obsidian: '#050608',
-            surface: '#0d1017',
-            card: 'rgba(13, 16, 23, 0.82)',
+            ebon: '#050507',
+            charcoal: '#0d0e12',
+            surface: 'rgba(16, 18, 24, 0.72)',
             gold: {
-              300: '#fef08a',
-              400: '#e6c36c',
-              500: '#c59b27',
-              600: '#997316'
+              100: '#fffbeb',
+              200: '#fef3c7',
+              300: '#fde68a',
+              400: '#e5c07b',
+              500: '#d4af37', // 24k Metallic Gold
+              600: '#9b7e23',
+              glow: 'rgba(212, 175, 55, 0.18)'
             }
           },
           animation: {
-            'glow-pulse': 'glowPulse 6s ease-in-out infinite alternate',
-            'radar': 'radar 3s linear infinite'
+            'aurora': 'aurora 8s ease infinite alternate',
+            'shimmer-slow': 'shimmer 4s linear infinite',
+            'radar-pulse': 'radar 3s cubic-bezier(0, 0, 0.2, 1) infinite'
           },
           keyframes: {
-            glowPulse: {
-              '0%': { opacity: '0.2', transform: 'scale(0.95)' },
-              '100%': { opacity: '0.5', transform: 'scale(1.05)' }
+            aurora: {
+              '0%': { transform: 'scale(1) translateY(0px)', opacity: '0.2' },
+              '100%': { transform: 'scale(1.15) translateY(-20px)', opacity: '0.45' }
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-150%)' },
+              '100%': { transform: 'translateX(150%)' }
+            },
+            radar: {
+              '0%': { transform: 'scale(0.8)', opacity: '0.8' },
+              '100%': { transform: 'scale(2.2)', opacity: '0' }
             }
           }
         }
@@ -56,186 +68,212 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #050608; }
-    ::-webkit-scrollbar-thumb { background: #232936; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #e6c36c; }
+    /* Premium Ultra-Thin Gold Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #050507; }
+    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #fde68a; }
 
-    .gold-text-gradient {
-      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 30%, #e6c36c 70%, #997316 100%);
+    /* Editorial Gold Foil Typography */
+    .gold-foil {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7d6 25%, #d4af37 60%, #876918 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .gold-metallic-border {
-      border: 1px solid rgba(230, 195, 108, 0.2);
-      box-shadow: 0 0 25px rgba(230, 195, 108, 0.04);
+
+    /* Precision Frosted Glassmorphism */
+    .glass-dossier {
+      background: rgba(13, 14, 18, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .gold-metallic-border:hover {
-      border-color: rgba(230, 195, 108, 0.6);
-      box-shadow: 0 16px 40px -10px rgba(230, 195, 108, 0.22);
-      transform: translateY(-5px);
+    .glass-dossier:hover {
+      border-color: rgba(212, 175, 55, 0.55);
+      box-shadow: 0 25px 50px -10px rgba(212, 175, 55, 0.15);
+      transform: translateY(-6px);
     }
-    .gold-button {
-      background: linear-gradient(135deg, #fef08a 0%, #e6c36c 50%, #b48318 100%);
-      box-shadow: 0 10px 30px -5px rgba(230, 195, 108, 0.4);
+
+    /* 24K Liquid Gold Action Button */
+    .btn-gold-liquid {
+      position: relative;
+      background: linear-gradient(135deg, #fffbeb 0%, #d4af37 50%, #9b7e23 100%);
+      color: #050507;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px -5px rgba(212, 175, 55, 0.4);
+      overflow: hidden;
     }
-    .gold-button:hover {
-      box-shadow: 0 15px 45px -3px rgba(230, 195, 108, 0.65);
+    .btn-gold-liquid::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 3s infinite;
+    }
+    .btn-gold-liquid:hover {
       transform: translateY(-2px);
+      box-shadow: 0 18px 45px -3px rgba(212, 175, 55, 0.6);
     }
-    .page-tab-content {
+
+    /* Sub-Page Content Transitions */
+    .tab-section {
       display: none;
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .page-tab-content.active {
+    .tab-section.active {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
-    /* Cinematic Vignette Overlay */
-    .hero-vignette {
-      background: radial-gradient(circle at center, rgba(5,6,8,0.2) 0%, rgba(5,6,8,0.85) 75%, #050608 100%);
-    }
-    /* Film Grain Texture */
-    .bg-grain {
-      background-image: radial-gradient(rgba(230, 195, 108, 0.04) 1px, transparent 0);
-      background-size: 32px 32px;
+
+    /* Ambient CRT Scanline Overlay */
+    .scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
     }
   </style>
 </head>
 
-<body class="bg-obsidian text-zinc-300 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300 min-h-screen flex flex-col relative overflow-x-hidden bg-grain">
+<body class="bg-ebon text-zinc-300 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300 min-h-screen flex flex-col relative overflow-x-hidden">
 
-  <!-- Ambient Golden Glow -->
-  <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[550px] bg-gradient-to-b from-gold-500/15 via-gold-600/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-10 animate-glow-pulse"></div>
+  <!-- Ambient Luxury Ray Orb -->
+  <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-gold-500/12 via-gold-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-10 animate-aurora"></div>
 
-  <!-- NAVIGATION BAR -->
-  <header class="fixed top-0 w-full z-50 bg-obsidian/75 backdrop-blur-2xl border-b border-white/5 transition-all">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
+  <!-- ULTRA-LUXURY NAVIGATION -->
+  <header class="fixed top-0 w-full z-50 bg-ebon/80 backdrop-blur-2xl border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#home" onclick="switchAscensionTab('home'); return false;" class="flex items-center gap-3.5 group">
-        <div class="w-11 h-11 rounded-lg bg-surface border border-gold-400/30 flex items-center justify-center shadow-lg shadow-gold-500/10 group-hover:border-gold-400 transition-colors">
-          <span class="font-display font-bold text-lg text-gold-400 group-hover:scale-110 transition-transform">T</span>
+      <!-- Brand Crest -->
+      <a href="#home" onclick="navigateProtocol('home'); return false;" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-xl bg-charcoal border border-gold-500/30 flex items-center justify-center shadow-lg shadow-gold-500/10 group-hover:border-gold-400 transition-colors">
+          <span class="font-display font-black text-xl text-gold-400 group-hover:scale-110 transition-transform">T</span>
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
-            <span class="font-display text-base tracking-[0.28em] text-white font-bold uppercase group-hover:text-gold-300 transition-colors">TITAN</span>
-            <span class="text-[9px] uppercase tracking-[0.3em] font-mono px-2 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-400/25">Ascension</span>
+            <span class="font-display text-lg tracking-[0.28em] text-white font-bold uppercase group-hover:text-gold-300 transition-colors">TITAN</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] font-mono px-2 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/30">Ascension</span>
           </div>
-          <span class="text-[9px] font-mono tracking-[0.22em] text-zinc-500 uppercase mt-0.5">High Performance Club</span>
+          <span class="text-[9px] font-mono tracking-[0.25em] text-zinc-500 uppercase mt-0.5">High Performance Club</span>
         </div>
       </a>
 
-      <!-- Desktop Dynamic Tab Navigation -->
-      <nav class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-surface/90 border border-white/10 shadow-inner">
-        <button onclick="switchAscensionTab('home')" data-tab="home" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md">
+      <!-- Desktop Minimalist Pill Switcher -->
+      <nav class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-charcoal/90 border border-white/10 shadow-inner">
+        <button onclick="navigateProtocol('home')" data-tab="home" class="protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] transition-all bg-gold-400 text-black shadow-md">
           Portal
         </button>
-        <button onclick="switchAscensionTab('transformations')" data-tab="transformations" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="navigateProtocol('dossiers')" data-tab="dossiers" class="protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-all">
           Dossiers
         </button>
-        <button onclick="switchAscensionTab('protocol')" data-tab="protocol" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="navigateProtocol('protocol')" data-tab="protocol" class="protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-all">
           Protocol
         </button>
-        <button onclick="switchAscensionTab('coach')" data-tab="coach" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all">
+        <button onclick="navigateProtocol('architect')" data-tab="architect" class="protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-all">
           Architect
         </button>
-        <button onclick="switchAscensionTab('apply')" data-tab="apply" class="ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all flex items-center gap-1.5">
+        <button onclick="navigateProtocol('apply')" data-tab="apply" class="protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-all flex items-center gap-1.5">
           <span>Apply</span>
           <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
         </button>
       </nav>
 
-      <!-- Direct Admission CTA -->
+      <!-- Exclusive Header Action -->
       <div class="hidden lg:flex items-center gap-4">
-        <button onclick="switchAscensionTab('apply')" class="gold-button px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-black">
-          Admissions Intake
+        <button onclick="navigateProtocol('apply')" class="btn-gold-liquid px-7 py-3 rounded-full text-xs">
+          Private Intake
         </button>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <button onclick="toggleMobileNav()" class="md:hidden p-2.5 rounded-xl bg-surface border border-white/10 text-zinc-300 hover:text-white">
+      <!-- Mobile Hamburger -->
+      <button onclick="toggleMobileNav()" class="md:hidden p-2.5 rounded-xl bg-charcoal border border-white/10 text-zinc-300 hover:text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
 
     </div>
 
-    <!-- Mobile Dropdown Navigation -->
-    <div id="ascension-mobile-menu" class="hidden md:hidden bg-obsidian/95 border-b border-white/10 px-6 py-6 space-y-3">
-      <button onclick="switchAscensionTab('home'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">Portal Home</button>
-      <button onclick="switchAscensionTab('transformations'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">Transformation Dossiers</button>
-      <button onclick="switchAscensionTab('protocol'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">The 4-Pillar Protocol</button>
-      <button onclick="switchAscensionTab('coach'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">The Head Architect</button>
-      <button onclick="switchAscensionTab('apply'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-bold text-gold-400">Intake Application &rarr;</button>
+    <!-- Mobile Drawer -->
+    <div id="ascension-mobile-menu" class="hidden md:hidden bg-ebon/98 border-b border-white/10 px-6 py-6 space-y-3">
+      <button onclick="navigateProtocol('home'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">Portal Home</button>
+      <button onclick="navigateProtocol('dossiers'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">Transformation Dossiers</button>
+      <button onclick="navigateProtocol('protocol'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">The 4-Stage Protocol</button>
+      <button onclick="navigateProtocol('architect'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-zinc-200">The Head Architect</button>
+      <button onclick="navigateProtocol('apply'); toggleMobileNav()" class="w-full text-left py-2.5 text-xs uppercase tracking-[0.2em] font-bold text-gold-400">Intake Application &rarr;</button>
     </div>
   </header>
 
-  <main class="flex-grow pt-20 sm:pt-24">
+  <main class="flex-grow pt-24">
 
-    <!-- ==================== PAGE 1: PORTAL (CINEMATIC VIDEO HERO) ==================== -->
-    <section id="tab-home" class="page-tab-content active relative min-h-[92vh] flex flex-col justify-between overflow-hidden">
+    <!-- ==========================================
+         PAGE 1: APEX PORTAL (CINEMATIC HERO LOOP)
+    =========================================== -->
+    <section id="tab-home" class="tab-section active relative min-h-[90vh] flex flex-col justify-between overflow-hidden">
       
-      <!-- CINEMATIC BACKGROUND VIDEO (Barbell Heavy Deadlift / Equipment Lift) -->
+      <!-- BACKGROUND VIDEO (Ultra-HD Heavy Barbell / Iron Rig Lifting Loop) -->
       <div class="absolute inset-0 w-full h-full overflow-hidden -z-20">
         <video 
           autoplay 
           loop 
           muted 
           playsinline 
-          class="w-full h-full object-cover filter brightness-[0.4] contrast-[1.25] saturate-[0.85]"
+          class="w-full h-full object-cover filter brightness-[0.38] contrast-[1.3] saturate-[0.8]"
         >
+          <!-- Direct High-Quality Cinematic Equipment Lifting Video -->
           <source src="https://assets.mixkit.co/videos/preview/mixkit-athlete-lifting-heavy-barbell-with-weights-41235-large.mp4" type="video/mp4">
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-muscular-man-doing-dumbbell-curls-41232-large.mp4" type="video/mp4">
         </video>
       </div>
 
-      <!-- Vignette Gradients & Scanline Layer -->
-      <div class="absolute inset-0 hero-vignette -z-10 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/70 -z-10 pointer-events-none"></div>
+      <!-- Scanlines & Cinematic Radial Falloff -->
+      <div class="absolute inset-0 scanlines opacity-40 pointer-events-none -z-10"></div>
+      <div class="absolute inset-0 bg-radial-gradient from-transparent via-ebon/60 to-ebon pointer-events-none -z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ebon via-transparent to-ebon/80 pointer-events-none -z-10"></div>
 
-      <!-- HERO CENTER CONTENT -->
-      <div class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 text-center my-auto space-y-7 relative z-10">
+      <!-- HERO CENTER STAGE -->
+      <div class="max-w-6xl mx-auto px-6 pt-16 md:pt-28 text-center my-auto space-y-8 relative z-10">
         
         <!-- Live Intake Status Badge -->
-        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-gold-400/30 text-[11px] font-mono tracking-widest uppercase text-zinc-300 shadow-xl">
+        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-black/70 backdrop-blur-xl border border-gold-500/30 text-[11px] font-mono tracking-widest uppercase text-zinc-300 shadow-2xl">
           <span class="flex h-2 w-2 relative">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-400"></span>
           </span>
-          <span class="text-gold-300">Live Intake Cohort 07</span>
+          <span class="text-gold-300">Cohort 07 Admissions Active</span>
           <span class="text-zinc-600">|</span>
-          <span class="text-zinc-400">Strictly 12 Private Slots</span>
+          <span class="text-zinc-400">12 Seats Allocated Annually</span>
         </div>
 
-        <!-- Grand Cinematic Headline -->
+        <!-- Master Title -->
         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.05]">
-          ENGINEER THE <br>
-          <span class="gold-text-gradient font-serif italic capitalize tracking-normal text-6xl sm:text-8xl lg:text-9xl">Apex Physique</span>
+          ARCHITECT THE <br>
+          <span class="gold-foil font-display text-5xl sm:text-7xl lg:text-8xl tracking-wider">APEX PHYSIQUE</span>
         </h1>
         
         <p class="text-sm sm:text-base md:text-lg text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
-          A bespoke biomechanical protocol designed exclusively for high-performing executives and athletes demanding elite muscular symmetry, raw power, and metabolic resilience.
+          A bespoke biomechanical transformation protocol engineered exclusively for high-performing executives demanding elite muscular symmetry, structural power, and metabolic resilience.
         </p>
 
-        <!-- CTA Action Cluster -->
-        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button onclick="switchAscensionTab('apply')" class="w-full sm:w-auto gold-button px-9 py-4 rounded-full text-xs font-bold uppercase tracking-[0.22em] text-black">
-            Submit Assessment Intake &rarr;
+        <!-- CTA Cluster -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-5">
+          <button onclick="navigateProtocol('apply')" class="w-full sm:w-auto btn-gold-liquid px-10 py-4 rounded-full text-xs">
+            Begin Private Assessment &rarr;
           </button>
           
-          <button onclick="switchAscensionTab('transformations')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:border-gold-400/50 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all shadow-lg">
-            Review Dossiers (240+ Proofs)
+          <button onclick="navigateProtocol('dossiers')" class="w-full sm:w-auto px-9 py-4 rounded-full bg-black/60 backdrop-blur-md border border-white/20 hover:border-gold-400/50 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all shadow-xl">
+            Examine Proof (240+ Dossiers)
           </button>
         </div>
 
       </div>
 
-      <!-- Bottom Metric Strip Overlay -->
-      <div class="w-full border-t border-white/10 bg-black/70 backdrop-blur-md mt-16 py-6 relative z-10">
+      <!-- Real-Time Metrics Strip -->
+      <div class="w-full border-t border-white/10 bg-black/80 backdrop-blur-xl mt-20 py-7 relative z-10">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-mono">
           <div>
             <div class="text-2xl sm:text-3xl font-display font-bold text-white tracking-wider">98.6%</div>
@@ -258,10 +296,12 @@
 
     </section>
 
-    <!-- ==================== PAGE 2: TRANSFORMATION DOSSIERS ==================== -->
-    <section id="tab-transformations" class="page-tab-content max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
+    <!-- ==========================================
+         PAGE 2: TRANSFORMATION DOSSIERS
+    =========================================== -->
+    <section id="tab-dossiers" class="tab-section max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-mono">Empirical Evidence</span>
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-mono">Verified Case Records</span>
         <h2 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-white">Client Dossiers</h2>
         <p class="text-sm text-zinc-400 font-light">Every case documented with verified progress milestones and tailored biomechanical adjustments.</p>
       </div>
@@ -269,72 +309,72 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Dossier 1 -->
-        <div class="bg-surface/80 rounded-2xl p-6 gold-metallic-border transition-all group flex flex-col justify-between">
+        <div class="glass-dossier rounded-2xl p-6 flex flex-col justify-between group">
           <div>
             <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black relative mb-5">
               <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Client 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-400/20">
+              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-500/30">
                 12 WEEKS RECOMP
               </div>
             </div>
             <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-2">
-              <span>Client Code: #ASC-109</span>
+              <span>Code: #ASC-109</span>
               <span class="text-emerald-400">Verified Protocol</span>
             </div>
-            <h3 class="text-xl font-serif text-white italic mb-2">Aesthetic Symmetry Shift</h3>
+            <h3 class="text-xl font-display text-white mb-2">Aesthetic Symmetry Shift</h3>
             <p class="text-xs text-zinc-400 leading-relaxed font-light mb-4">
               Restructured shoulder-to-waist taper using customized cable clavicular presses and calorie-cycling micro-surpluses.
             </p>
           </div>
-          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
             <span class="text-zinc-500">Fat Loss: -8.8kg</span>
             <span class="text-gold-400">Squat: +35kg</span>
           </div>
         </div>
 
         <!-- Dossier 2 -->
-        <div class="bg-surface/80 rounded-2xl p-6 gold-metallic-border transition-all group flex flex-col justify-between">
+        <div class="glass-dossier rounded-2xl p-6 flex flex-col justify-between group">
           <div>
             <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black relative mb-5">
               <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80" alt="Client 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-400/20">
+              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-500/30">
                 16 WEEKS CUT
               </div>
             </div>
             <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-2">
-              <span>Client Code: #ASC-214</span>
+              <span>Code: #ASC-214</span>
               <span class="text-emerald-400">Verified Protocol</span>
             </div>
-            <h3 class="text-xl font-serif text-white italic mb-2">Executive Metabolic Rebuild</h3>
+            <h3 class="text-xl font-display text-white mb-2">Executive Metabolic Rebuild</h3>
             <p class="text-xs text-zinc-400 leading-relaxed font-light mb-4">
               Eliminated stubborn visceral deposits while preserving baseline free testosterone across high stress schedules.
             </p>
           </div>
-          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
             <span class="text-zinc-500">Fat Loss: -13.2kg</span>
             <span class="text-gold-400">Deadlift: +40kg</span>
           </div>
         </div>
 
         <!-- Dossier 3 -->
-        <div class="bg-surface/80 rounded-2xl p-6 gold-metallic-border transition-all group flex flex-col justify-between">
+        <div class="glass-dossier rounded-2xl p-6 flex flex-col justify-between group">
           <div>
             <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black relative mb-5">
               <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Client 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-400/20">
+              <div class="absolute bottom-3 left-3 px-3 py-1 rounded bg-black/85 backdrop-blur text-[10px] font-mono tracking-wider text-gold-400 border border-gold-500/30">
                 20 WEEKS HYPERTROPHY
               </div>
             </div>
             <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-2">
-              <span>Client Code: #ASC-318</span>
+              <span>Code: #ASC-318</span>
               <span class="text-emerald-400">Verified Protocol</span>
             </div>
-            <h3 class="text-xl font-serif text-white italic mb-2">Lean Tissue Accumulation</h3>
+            <h3 class="text-xl font-display text-white mb-2">Lean Tissue Accumulation</h3>
             <p class="text-xs text-zinc-400 leading-relaxed font-light mb-4">
               Clean contractile mass accumulation with zero digestion distress, optimized sleep quality and progressive overload logs.
             </p>
           </div>
-          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
             <span class="text-zinc-500">Lean Mass: +5.5kg</span>
             <span class="text-gold-400">Rest HR: 51 BPM</span>
           </div>
@@ -343,65 +383,69 @@
       </div>
     </section>
 
-    <!-- ==================== PAGE 3: THE 4-PILLAR PROTOCOL ==================== -->
-    <section id="tab-protocol" class="page-tab-content max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
+    <!-- ==========================================
+         PAGE 3: THE 4-STAGE PROTOCOL
+    =========================================== -->
+    <section id="tab-protocol" class="tab-section max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-mono">Scientific Rigor</span>
         <h2 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-white">The Methodology</h2>
-        <p class="text-sm text-zinc-400 font-light">Eliminating generic templates in favor of strict empirical adaptation.</p>
+        <p class="text-sm text-zinc-400 font-light">Eliminating bro-science in favor of strict empirical adaptation.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <div class="bg-surface/70 p-8 rounded-3xl border border-white/10 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-display font-bold">
+        <div class="glass-dossier p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-display font-bold">
             01
           </div>
-          <h3 class="text-2xl font-serif text-white italic">Kinetic Leverage Analysis</h3>
+          <h3 class="text-2xl font-display text-white">Kinetic Leverage Analysis</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
             Standard barbell benches don't fit every ribcage. We map your humerus-to-torso ratio to select movement arcs that recruit maximum motor units without joint impingement.
           </p>
         </div>
 
-        <div class="bg-surface/70 p-8 rounded-3xl border border-white/10 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-display font-bold">
+        <div class="glass-dossier p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-display font-bold">
             02
           </div>
-          <h3 class="text-2xl font-serif text-white italic">Micro-Nutrient Partitioning</h3>
+          <h3 class="text-2xl font-display text-white">Micro-Nutrient Partitioning</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
             Syncing peri-workout carbohydrates with intra-cellular insulin sensitivity. We don't starve you; we orchestrate where glycogen is shuttled.
           </p>
         </div>
 
-        <div class="bg-surface/70 p-8 rounded-3xl border border-white/10 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-display font-bold">
+        <div class="glass-dossier p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-display font-bold">
             03
           </div>
-          <h3 class="text-2xl font-serif text-white italic">Autoregulated Periodization</h3>
+          <h3 class="text-2xl font-display text-white">Autoregulated Periodization</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
-            High-stress business weeks demand neural adjustments. We dynamically regulate RPE and set volume to prevent central nervous system burnout.
+            High-stress business weeks demand neural adjustments. We dynamically regulate RPE (Rate of Perceived Exertion) and set volume to prevent adrenal burnout.
           </p>
         </div>
 
-        <div class="bg-surface/70 p-8 rounded-3xl border border-white/10 space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-display font-bold">
+        <div class="glass-dossier p-8 rounded-3xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-display font-bold">
             04
           </div>
-          <h3 class="text-2xl font-serif text-white italic">Circadian & Sleep Architecture</h3>
+          <h3 class="text-2xl font-display text-white">Circadian & Sleep Architecture</h3>
           <p class="text-sm text-zinc-400 font-light leading-relaxed">
-            Peak hypertrophy requires slow-wave non-REM cycles. We optimize temperature, light spectrums, and supplementation protocols for deep cellular repair.
+            Growth hormone spikes occur exclusively during slow-wave non-REM cycles. We optimize temperature, light spectrums, and magnesium protocols for deep cellular repair.
           </p>
         </div>
 
       </div>
     </section>
 
-    <!-- ==================== PAGE 4: THE ARCHITECT (ABOUT COACH) ==================== -->
-    <section id="tab-coach" class="page-tab-content max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
+    <!-- ==========================================
+         PAGE 4: THE ARCHITECT (COACH PROFILE)
+    =========================================== -->
+    <section id="tab-architect" class="tab-section max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-5">
-          <div class="rounded-3xl overflow-hidden border border-gold-400/25 relative bg-black shadow-2xl">
+          <div class="rounded-3xl overflow-hidden border border-gold-500/30 relative bg-black shadow-2xl">
             <img 
               src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=900&q=80" 
               alt="Head Coach & Architect" 
@@ -416,7 +460,7 @@
 
         <div class="lg:col-span-7 space-y-6">
           <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-mono">The Mind Behind The Protocol</span>
-          <h2 class="text-3xl sm:text-5xl font-serif italic text-white leading-tight">
+          <h2 class="text-3xl sm:text-5xl font-display text-white leading-tight">
             "True aesthetic mastery is engineering, not emotion."
           </h2>
           <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed">
@@ -445,9 +489,11 @@
       </div>
     </section>
 
-    <!-- ==================== PAGE 5: INTAKE & APPLICATION ==================== -->
-    <section id="tab-apply" class="page-tab-content max-w-4xl mx-auto px-6 py-16 md:py-24">
-      <div class="bg-surface/90 rounded-3xl p-8 sm:p-14 border border-gold-400/30 shadow-2xl relative overflow-hidden">
+    <!-- ==========================================
+         PAGE 5: ADMISSIONS INTAKE (APPLICATION)
+    =========================================== -->
+    <section id="tab-apply" class="tab-section max-w-4xl mx-auto px-6 py-16 md:py-24">
+      <div class="glass-dossier rounded-3xl p-8 sm:p-14 relative overflow-hidden">
         
         <div class="text-center mb-10 space-y-3">
           <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Private Assessment</span>
@@ -467,7 +513,7 @@
                 id="applicantName" 
                 required 
                 placeholder="e.g. John Doe" 
-                class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400"
+                class="w-full px-4 py-3.5 rounded-xl bg-ebon border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400"
               >
             </div>
 
@@ -478,7 +524,7 @@
                 id="applicantPhone" 
                 required 
                 placeholder="+91 8302491321" 
-                class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400"
+                class="w-full px-4 py-3.5 rounded-xl bg-ebon border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400"
               >
             </div>
           </div>
@@ -488,7 +534,7 @@
               <label class="block text-xs uppercase tracking-wider font-mono text-zinc-400">Primary Aesthetic Goal *</label>
               <select 
                 id="applicantGoal" 
-                class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/10 text-white text-sm focus:outline-none focus:border-gold-400"
+                class="w-full px-4 py-3.5 rounded-xl bg-ebon border border-white/10 text-white text-sm focus:outline-none focus:border-gold-400"
               >
                 <option value="Aggressive Single-Digit Shred">Aggressive Single-Digit Fat Cut</option>
                 <option value="Dense Lean Contractile Mass">Dense Lean Contractile Mass</option>
@@ -501,7 +547,7 @@
               <label class="block text-xs uppercase tracking-wider font-mono text-zinc-400">Current Training Frequency</label>
               <select 
                 id="applicantExp" 
-                class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/10 text-white text-sm focus:outline-none focus:border-gold-400"
+                class="w-full px-4 py-3.5 rounded-xl bg-ebon border border-white/10 text-white text-sm focus:outline-none focus:border-gold-400"
               >
                 <option value="1-2 Days / Inconsistent">1-2 Days / Inconsistent</option>
                 <option value="3-4 Days / Regular">3-4 Days / Regular</option>
@@ -517,7 +563,7 @@
               rows="4" 
               required 
               placeholder="Tell us about past plateaus, busy travel schedules, food habits or previous injuries..." 
-              class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400 font-light"
+              class="w-full px-4 py-3.5 rounded-xl bg-ebon border border-white/10 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-gold-400 font-light"
             ></textarea>
           </div>
 
@@ -525,7 +571,7 @@
             <button 
               type="submit" 
               id="intakeSubmitBtn" 
-              class="w-full py-4 rounded-full gold-button font-display font-bold uppercase tracking-[0.22em] text-xs text-black"
+              class="w-full py-4 rounded-full btn-gold-liquid text-xs"
             >
               Submit Application to Head Architect &rarr;
             </button>
@@ -539,7 +585,7 @@
   </main>
 
   <!-- LUXURY MINIMAL FOOTER -->
-  <footer class="border-t border-white/5 bg-obsidian py-12 text-xs font-mono text-zinc-600 text-center">
+  <footer class="border-t border-white/5 bg-ebon py-12 text-xs font-mono text-zinc-600 text-center">
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p>© 2026 TITAN CLUB • THE ASCENSION PROTOCOL</p>
       <div class="flex items-center gap-6">
@@ -552,9 +598,9 @@
   <script>
     lucide.createIcons();
 
-    // Multi-page Tab Router (Clean Zero-Reload Switching)
-    function switchAscensionTab(tabId) {
-      const validTabs = ['home', 'transformations', 'protocol', 'coach', 'apply'];
+    // Client-Side Tab Router
+    function navigateProtocol(tabId) {
+      const validTabs = ['home', 'dossiers', 'protocol', 'architect', 'apply'];
       if (!validTabs.includes(tabId)) tabId = 'home';
 
       validTabs.forEach(t => {
@@ -568,13 +614,13 @@
         }
       });
 
-      // Update Navigation Buttons Active State
-      document.querySelectorAll('.ascension-nav').forEach(btn => {
+      // Update Nav Buttons
+      document.querySelectorAll('.protocol-nav').forEach(btn => {
         const target = btn.getAttribute('data-tab');
         if (target === tabId) {
-          btn.className = 'ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all bg-gold-400 text-black shadow-md';
+          btn.className = 'protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] transition-all bg-gold-400 text-black shadow-md';
         } else {
-          btn.className = 'ascension-nav px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 hover:text-white transition-all';
+          btn.className = 'protocol-nav px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-all';
         }
       });
 
@@ -589,14 +635,14 @@
 
     window.addEventListener('popstate', () => {
       const hash = window.location.hash.replace('#', '') || 'home';
-      switchAscensionTab(hash);
+      navigateProtocol(hash);
     });
 
     function toggleMobileNav() {
       document.getElementById('ascension-mobile-menu').classList.toggle('hidden');
     }
 
-    // Direct High-Conversion WhatsApp Application Dispatch
+    // Direct High-Ticket WhatsApp Dispatch
     document.getElementById('titanIntakeForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -626,7 +672,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const initialHash = window.location.hash.replace('#', '') || 'home';
-      switchAscensionTab(initialHash);
+      navigateProtocol(initialHash);
     });
   </script>
 
